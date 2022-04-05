@@ -87,6 +87,13 @@ app.get('/getuser', (req,res) => {
     res.send(req.user)
 })
 
+app.get("/logout", (req,res) => {
+    if(req.user){
+        req.logout();
+        req.send("logout success!")
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`App is running at ${PORT}`);
 });
